@@ -24,5 +24,13 @@ return function (ContainerBuilder $containerBuilder) {
 
             return $logger;
         },
+        'pdo' => function() {
+            $dsn = 'mysql:host=mysql;dbname=mydb';
+            $user = 'root';
+            $pw = 'RootPassw0rd';
+            $pdo = new \PDO($dsn, $user, $pw);
+    
+            return $pdo;
+        },
     ]);
 };
