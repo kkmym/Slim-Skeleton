@@ -32,4 +32,18 @@ class MyTest extends TestCase
 
         $this->assertEquals(200, $statusCode);
     }
+
+    public function testRouteMyTestForm()
+    {
+        $app = $this->getAppInstance();
+
+        $request = $this->createRequest('GET', '/mytest/form');
+        $response = $app->handle($request);
+
+        $statusCode = $response->getStatusCode();
+        $this->assertEquals(200, $statusCode);
+
+        $body = $response->getBody();
+        $this->assertRegExp('/form/', $body);
+    }
 }

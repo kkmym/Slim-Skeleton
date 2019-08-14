@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Actions\MyTest;
+namespace MyApp\Application\Actions\MyTest;
 
 use App\Application\Actions\Action;
 use Psr\Container\ContainerInterface;
@@ -14,7 +14,7 @@ class MyTestAction extends Action
     public function __construct(ContainerInterface $containter ,LoggerInterface $logger)
     {
         parent::__construct($logger);
-        $this->pdo = $containter->get('pdo');    
+        $this->pdo = $containter->get('MysqlPdo');    
     }
     public function action(): Response
     {

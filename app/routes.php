@@ -5,7 +5,8 @@ use App\Application\Actions\User\ListUsersAction;
 use App\Application\Actions\User\ViewUserAction;
 use Slim\App;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
-use App\Application\Actions\MyTest\MyTestAction;
+use MyApp\Application\Actions\MyTest\MyTestAction;
+use MyApp\Application\Actions\MyTest\MyTestFormAction;
 
 return function (App $app) {
     $container = $app->getContainer();
@@ -22,5 +23,5 @@ return function (App $app) {
     });
 
     $app->get('/mytest', MyTestAction::class);
-
+    $app->get('/mytest/form', MyTestFormAction::class);
 };
