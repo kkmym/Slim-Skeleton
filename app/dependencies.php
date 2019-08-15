@@ -7,6 +7,7 @@ use Monolog\Logger;
 use Monolog\Processor\UidProcessor;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
+use Monolog\Formatter\LineFormatter;
 
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
@@ -19,7 +20,11 @@ return function (ContainerBuilder $containerBuilder) {
             $processor = new UidProcessor();
             $logger->pushProcessor($processor);
 
+            // $formatter = new LineFormatter();
+            // $formatter->includeStacktraces(true);
+
             $handler = new StreamHandler($loggerSettings['path'], $loggerSettings['level']);
+            // $handler->setFormatter($formatter);
             $logger->pushHandler($handler);
 
             return $logger;
