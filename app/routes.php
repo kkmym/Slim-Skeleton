@@ -8,6 +8,8 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 use MyApp\Application\Actions\MyTest\MyTestAction;
 use MyApp\Application\Actions\MyTest\MyTestFormAction;
 use MyApp\Application\Actions\UserAccount\Register\FormAction;
+use MyApp\Application\Actions\UserAccount\Register\PostAction;
+use MyApp\Application\Actions\UserAccount\Register\DoneAction;
 
 return function (App $app) {
     $container = $app->getContainer();
@@ -26,7 +28,9 @@ return function (App $app) {
     $app->get('/mytest', MyTestAction::class);
     $app->get('/mytest/form', MyTestFormAction::class);
 
-    $app->group("/user-account", function(Group $group) use ($container) {
+    $app->group("/user_account", function(Group $group) use ($container) {
         $group->get('/register/form', FormAction::class);
+        $group->post('/register/post', PostAction::class);
+        $group->get('/register/done', DoneAction::class);
     });
 };

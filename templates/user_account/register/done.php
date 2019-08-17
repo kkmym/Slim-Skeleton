@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><?=$title?></title>
 </head>
 <body>
-<h1><?=$h1?></h1>    
+登録完了
 </body>
 </html>

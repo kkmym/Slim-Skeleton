@@ -8,6 +8,7 @@ use Monolog\Processor\UidProcessor;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Monolog\Formatter\LineFormatter;
+use Slim\Views\PhpRenderer;
 
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
@@ -37,5 +38,9 @@ return function (ContainerBuilder $containerBuilder) {
     
             return $pdo;
         },
+        PhpRenderer::class => function() {
+            $templatePath = __DIR__ . '/../templates/';
+            return new PhpRenderer($templatePath);
+        }
     ]);
 };

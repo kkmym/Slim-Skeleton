@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Log\LoggerInterface;
 use Slim\Views\PhpRenderer;
 
-class FormAction extends Action
+class DoneAction extends Action
 {
     protected $phpRenderer;
 
@@ -20,6 +20,6 @@ class FormAction extends Action
     public function action(): Response
     {
         $viewData = [];
-        return $this->phpRenderer->render($this->response, "user_account/register/form.php", $viewData);
+        return $this->phpRenderer->render($this->response, "user_account/register/done.php", $viewData);
     }
 }
