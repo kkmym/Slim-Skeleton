@@ -10,11 +10,11 @@ class User
 {
     protected $userId;
     /* @var $dispUserid UserDispUserId */
-    protected $dispUserId;
+    protected $userDispUserId;
     /* @var $loginId UserLoginId */
-    protected $loginId;
+    protected $userLoginId;
     /* @var $hashedPw UserHashedPw */
-    protected $hashedPw;
+    protected $userHashedPw;
     protected $userName;
     protected $createdAt;
     protected $updatedAt;
@@ -26,9 +26,9 @@ class User
         $userHashedPw = UserHashedPw::getInstanceOf($rawPw);
 
         $instance = new User();
-        $instance->dispUserId = $userDispUserId;
-        $instance->loginId = $userLoginId;
-        $instance->hashedPw = $userHashedPw;
+        $instance->userDispUserId = $userDispUserId;
+        $instance->userLoginId = $userLoginId;
+        $instance->userHashedPw = $userHashedPw;
         $instance->userName = $userName;
 
         return $instance;
