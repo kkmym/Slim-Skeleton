@@ -34,7 +34,10 @@ return function (ContainerBuilder $containerBuilder) {
             $dsn = 'mysql:host=mysql;dbname=mydb';
             $user = 'root';
             $pw = 'RootPassw0rd';
-            $pdo = new \PDO($dsn, $user, $pw);
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            ];
+            $pdo = new \PDO($dsn, $user, $pw, $options);
     
             return $pdo;
         },

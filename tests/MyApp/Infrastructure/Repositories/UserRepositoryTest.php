@@ -14,10 +14,11 @@ class UserRepositoryTest extends TestCase
         $container = $app->getContainer();
         $repo = $container->get(UserRepository::class);
 
-        $user = User::getInstanceOfNewUser('LoginID', 'Password', 'TestUser');
+        $user = User::getInstanceOfNewUser('LoginID', 'Password', 'てすと', 'ゆーざー');
         $newId = $repo->store($user);
 
         $this->assertIsInt($newId);
+        $this->assertGreaterThan(0, $newId);
     }
 }
 

@@ -12,8 +12,9 @@ class UserTest extends TestCase
     {
         $loginId = 'newLoginId';
         $rawPw = 'newPassword';
-        $userName = 'Dummy User';
-        $newUser = User::getInstanceOfNewUser($loginId, $rawPw, $userName);
+        $lastName = 'Dummy';
+        $firstName = 'User';
+        $newUser = User::getInstanceOfNewUser($loginId, $rawPw, $lastName, $firstName);
 
         $this->assertNull($newUser->userId);
         $this->assertInstanceOf(UserDispUserId::class, $newUser->userDispUserId);

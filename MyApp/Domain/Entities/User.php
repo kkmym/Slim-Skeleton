@@ -15,11 +15,12 @@ class User
     protected $userLoginId;
     /* @var $hashedPw UserHashedPw */
     protected $userHashedPw;
-    protected $userName;
+    protected $lastName;
+    protected $firstName;
     protected $createdAt;
     protected $updatedAt;
 
-    public static function getInstanceOfNewUser(string $loginId, string $rawPw, string $userName)
+    public static function getInstanceOfNewUser(string $loginId, string $rawPw, string $lastName, string $firstName)
     {
         $userDispUserId = UserDispUserId::getInstanceOf($loginId);
         $userLoginId = new UserLoginId($loginId);
@@ -29,7 +30,8 @@ class User
         $instance->userDispUserId = $userDispUserId;
         $instance->userLoginId = $userLoginId;
         $instance->userHashedPw = $userHashedPw;
-        $instance->userName = $userName;
+        $instance->lastName = $lastName;
+        $instance->firstName = $firstName;
 
         return $instance;
     }

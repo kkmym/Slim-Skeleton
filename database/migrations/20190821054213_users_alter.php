@@ -31,7 +31,8 @@ class UsersAlter extends AbstractMigration
         $table = $this->table('users', ['id' => false, 'primary_key' => ['user_id'], 'collation' => 'utf8mb4_general_ci']);
         $table->addColumn('login_id', 'string', ['encoding' => 'utf8mb4'])
             ->addColumn('hashed_pw', 'string', ['encoding' => 'utf8mb4'])
-            ->addColumn('user_name', 'string', ['encoding' => 'utf8mb4'])
+            ->addColumn('last_name', 'string', ['encoding' => 'utf8mb4'])
+            ->addColumn('first_name', 'string', ['encoding' => 'utf8mb4'])
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
             ->addColumn('updated_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP', 'update' => 'CURRENT_TIMESTAMP'])
             ->save();

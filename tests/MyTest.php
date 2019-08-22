@@ -21,6 +21,7 @@ class MyTest extends TestCase
         $this->assertEquals('Test', $body);
     }
 
+    /*
     public function testRouteMyTest()
     {
         $app = $this->getAppInstance();
@@ -32,6 +33,7 @@ class MyTest extends TestCase
 
         $this->assertEquals(200, $statusCode);
     }
+    */
 
     public function testRouteMyTestForm()
     {
