@@ -20,5 +20,19 @@ class UserRepositoryTest extends TestCase
         $this->assertIsInt($newId);
         $this->assertGreaterThan(0, $newId);
     }
+
+    public function testFindByLoginId()
+    {
+        $app = $this->getAppInstance();
+        $container = $app->getContainer();
+        $repo = $container->get(UserRepository::class);
+
+        $loginId = 'LoginID';
+        $user = $repo->findByLoginId($loginId);
+
+        $this->assertInstanceOf(User::class, $user);
+        $this->assertEquals($user->userLoginId->value(), $loginId);
+        $this->assertTrue(password_verify('Password', $user->userHashedPw->value()));
+    }
 }
 

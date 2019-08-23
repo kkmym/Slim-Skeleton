@@ -38,7 +38,7 @@ class User
 
     public function __set($name, $value)
     {
-        if (isset($this->$name)) {
+        if (property_exists($this, $name)) {
             $this->$name = $value;
         }
     }
