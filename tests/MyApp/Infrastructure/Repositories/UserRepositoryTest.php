@@ -19,13 +19,6 @@ class UserRepositoryTest extends TestCase
 
         $this->assertIsInt($newId);
         $this->assertGreaterThan(0, $newId);
-    }
-
-    public function testFindByLoginId()
-    {
-        $app = $this->getAppInstance();
-        $container = $app->getContainer();
-        $repo = $container->get(UserRepository::class);
 
         $loginId = 'LoginID';
         $user = $repo->findByLoginId($loginId);
@@ -34,5 +27,15 @@ class UserRepositoryTest extends TestCase
         $this->assertEquals($user->userLoginId->value(), $loginId);
         $this->assertTrue(password_verify('Password', $user->userHashedPw->value()));
     }
-}
 
+    protected function tearDown()
+    {
+        $app = $this->getAppInstance();
+        $container = $app->getContainer();
+        $pdo = $container->get('MysqlPdo');
+        $sql = <<< END_OF_SQL
+TRUNCATE TABLE users;
+END_OF_SQL;
+        $pdo->exec($sql);
+    }
+}
