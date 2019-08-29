@@ -25,4 +25,9 @@ class UserHashedPw
     {
         return $this->hashedPw;
     }
+
+    public function verifyRawPw(string $rawPw)
+    {
+        return password_verify($rawPw, $this->hashedPw);
+    }
 }

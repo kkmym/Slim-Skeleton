@@ -24,7 +24,7 @@ class UserLoginService
         }
 
         // 入力されたパスワードと突き合わせ
-        if (!password_verify($rawPw, $user->userHashedPw->value())) {
+        if (!$user->userHashedPw->verifyRawPw($rawPw)) {
             return false;
         }
 
