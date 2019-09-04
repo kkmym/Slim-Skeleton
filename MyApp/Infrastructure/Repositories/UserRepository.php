@@ -9,6 +9,7 @@ use MyApp\Domain\DomainExceptions\EntityNotExistsException;
 use MyApp\Domain\ValueObjects\UserDispUserId;
 use MyApp\Domain\ValueObjects\UserLoginId;
 use MyApp\Domain\ValueObjects\UserHashedPw;
+use MyApp\Domain\ValueObjects\UserName;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -41,8 +42,8 @@ END_OF_SQL;
         $params['disp_user_id'] = $user->userDispUserId->value();
         $params['login_id'] = $user->userLoginId->value();
         $params['hashed_pw'] = $user->userHashedPw->value();
-        $params['last_name'] = $user->lastName;
-        $params['first_name'] = $user->firstName;
+        $params['last_name'] = $user->userName->lastName;
+        $params['first_name'] = $user->userName->firstName;
 
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($params);
@@ -83,8 +84,7 @@ END_OF_SQL;
         $user->userDispUserId = new UserDispUserId($result['disp_user_id']);
         $user->userLoginId = new UserLoginId($result['login_id']);
         $user->userHashedPw = new UserHashedPw($result['hashed_pw']);
-        $user->lastName = $result['last_name'];
-        $user->firstName = $result['first_name'];
+        $user->userName = new UserName($result['last_name'], $result['first_name']);
 
         return $user;
     }

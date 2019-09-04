@@ -5,6 +5,7 @@ namespace MyApp\Domain\Entities;
 use MyApp\Domain\ValueObjects\UserLoginId;
 use MyApp\Domain\ValueObjects\UserHashedPw;
 use MyApp\Domain\ValueObjects\UserDispUserId;
+use MyApp\Domain\ValueObjects\UserName;
 
 class User
 {
@@ -15,8 +16,8 @@ class User
     protected $userLoginId;
     /* @var $hashedPw UserHashedPw */
     protected $userHashedPw;
-    protected $lastName;
-    protected $firstName;
+    /* @var $userName UserName */
+    protected $userName;
     protected $createdAt;
     protected $updatedAt;
 
@@ -25,13 +26,13 @@ class User
         $userDispUserId = UserDispUserId::getInstanceOf($loginId);
         $userLoginId = new UserLoginId($loginId);
         $userHashedPw = UserHashedPw::getInstanceOf($rawPw);
+        $userName = new UserName($lastName, $firstName);
 
         $instance = new User();
         $instance->userDispUserId = $userDispUserId;
         $instance->userLoginId = $userLoginId;
         $instance->userHashedPw = $userHashedPw;
-        $instance->lastName = $lastName;
-        $instance->firstName = $firstName;
+        $instance->userName = $userName;
 
         return $instance;
     }

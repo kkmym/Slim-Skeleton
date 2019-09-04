@@ -11,7 +11,7 @@ class UserLoginId
     public function __construct(string $loginId)
     {
         if (!$this->_isValidLoginId($loginId)) {
-            throw new InvalidTypeException('UserLoginId Invalid');
+            throw new InvalidTypeException('UserLoginId ' . $loginId . ' Invalid');
         }
         $this->loginId = $loginId;    
     }

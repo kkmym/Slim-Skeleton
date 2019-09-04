@@ -22,7 +22,8 @@ class UserAccountTest extends TestCase
     {
         $app = $this->getAppInstance();
 
-        $request = $this->createRequest('POST', '/user_account/register/post');
+        $request = $this->createRequest('POST', '/user_account/register/post', ['Content-Type'=>'application/x-www-form-urlencoded']);
+        $request = $request->withParsedBody(['login_id'=>'MyID', 'password'=>'PASSWord', 'last_name'=>'Kamiyama', 'first_name'=>'Kentaro']);
         $response = $app->handle($request);
 
         $statusCode = $response->getStatusCode();

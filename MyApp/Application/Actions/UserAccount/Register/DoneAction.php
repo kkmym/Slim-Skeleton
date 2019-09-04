@@ -17,7 +17,7 @@ class DoneAction extends Action
         $this->phpRenderer = $phpRenderer;
     }
 
-    public function action(): Response
+    protected function action(): Response
     {
         $viewData = [];
         return $this->phpRenderer->render($this->response, "user_account/register/done.php", $viewData);
