@@ -1,0 +1,3 @@
+[submodule "slim_dock"]
+	path = slim_dock
+	url = git@github.com:kkmym/slim_dock.git
