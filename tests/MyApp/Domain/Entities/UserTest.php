@@ -11,7 +11,7 @@ class UserTest extends TestCase
     public function testIncetanceOfNewUser()
     {
         $loginId = 'newLoginId';
-        $rawPw = 'newPassword';
+        $rawPw = 'Aaaaaaaaa0';
         $lastName = 'Dummy';
         $firstName = 'User';
         $newUser = User::getInstanceOfNewUser($loginId, $rawPw, $lastName, $firstName);

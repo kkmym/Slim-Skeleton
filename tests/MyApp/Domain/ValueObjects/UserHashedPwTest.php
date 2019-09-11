@@ -9,7 +9,7 @@ class UserHashedPwTest extends TestCase
 {
     public function testInstanceOfRawPw()
     {
-        $rawPw = 'NewPassword';
+        $rawPw = 'newPasSW0rd';
         $userHashedPw = UserHashedPw::getInstanceOf($rawPw);
         $verify = password_verify($rawPw, $userHashedPw->value());
         $this->assertTrue($verify);
