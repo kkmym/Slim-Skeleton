@@ -2,7 +2,6 @@
 
 namespace Tests\TDDPractice\Domain\Entities;
 
-use TDDPractice\VendingMachine\Domain\Entities\BaseDrinkBin;
 use TDDPractice\VendingMachine\Domain\Entities\DrinkBinCoke;
 use TDDPractice\VendingMachine\Domain\ValueObjects\DrinkCoke;
 use Tests\TestCase;
