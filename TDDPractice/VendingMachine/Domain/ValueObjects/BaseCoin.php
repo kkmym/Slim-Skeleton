@@ -12,7 +12,7 @@ abstract class BaseCoin implements MoneyInterface
     private $type;
 
     /**
-     * @value int $value
+     * @var int $value
      */
     private $value;
 
